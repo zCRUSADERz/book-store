@@ -1,0 +1,11 @@
+dist: focal
+language: java
+jdk: openjdk11
+script:
+  - mvn install
+notifications:
+  email:
+    recipients:
+      - sanyakovlev@yandex.ru
+    on_success: never
+    on_failure: always
