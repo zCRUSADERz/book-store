@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.com/zCRUSADERz/book-store.svg?branch=master)](https://travis-ci.com/github/zCRUSADERz/book-store)
