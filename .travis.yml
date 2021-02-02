@@ -5,6 +5,8 @@ install:
   - mvn dependency:go-offline -V
 script:
   - mvn install
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
 notifications:
   email:
     recipients:
