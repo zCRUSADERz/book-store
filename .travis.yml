@@ -1,6 +1,8 @@
 dist: focal
 language: java
 jdk: openjdk11
+install:
+  - mvn dependency:go-offline -V
 script:
   - mvn install
 notifications:
