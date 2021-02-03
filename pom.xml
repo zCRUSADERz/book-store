@@ -39,7 +39,9 @@
         <java.version>11</java.version>
     </properties>
     <scm>
-        <developerConnection>scm:git:ssh://github.com/zCRUSADERz/book-store</developerConnection>
+        <connection>scm:git:https://github.com/zCRUSADERz/book-store</connection>
+        <url>scm:git:https://github.com/zCRUSADERz/book-store</url>
+        <developerConnection>scm:git:https://github.com/zCRUSADERz/book-store</developerConnection>
     </scm>
     <dependencies>
         <dependency>
