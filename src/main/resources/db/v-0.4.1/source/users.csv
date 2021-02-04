@@ -1,0 +1,3 @@
+username,password,enabled
+admin,"{argon2}$argon2id$v=19$m=4096,t=3,p=1$L+qzo5UeDSGiXGYx87NW0g$thTr3BfTJHtGk2qSEY3j+EF5qEJpP78cKoseFNNxceU",true
+user,"{argon2}$argon2id$v=19$m=4096,t=3,p=1$QH2FCScR4N/daj2zrPqKXA$PpV0M6QcGC6lzOiKBVceBNZ54WwmnMbGyaDy2lGN2uU",true
