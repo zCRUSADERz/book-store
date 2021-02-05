@@ -39,7 +39,7 @@
 
   <module name="LineLength">
     <property name="fileExtensions" value="java"/>
-    <property name="max" value="100"/>
+    <property name="max" value="120"/>
     <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
   </module>
 
@@ -249,14 +249,6 @@
       <property name="throwsIndent" value="4"/>
       <property name="lineWrappingIndentation" value="4"/>
       <property name="arrayInitIndent" value="2"/>
-    </module>
-    <module name="AbbreviationAsWordInName">
-      <property name="ignoreFinal" value="false"/>
-      <property name="allowedAbbreviationLength" value="0"/>
-      <property name="tokens"
-                value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, ANNOTATION_DEF, ANNOTATION_FIELD_DEF,
-                    PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF, PATTERN_VARIABLE_DEF, RECORD_DEF,
-                    RECORD_COMPONENT_DEF"/>
     </module>
     <module name="OverloadMethodsDeclarationOrder"/>
     <module name="VariableDeclarationUsageDistance"/>
