@@ -22,11 +22,6 @@
 # SOFTWARE.
 #
 
-spring:
-  mvc:
-    pathmatch:
-      matching-strategy: path_pattern_parser
-  liquibase:
-    change-log: classpath:/db/liquibase-changelog.xml
-  profiles:
-    active: dev
+logging:
+  level:
+    org.springframework: trace
