@@ -47,12 +47,6 @@ import org.springframework.util.Base64Utils;
 @ActiveProfiles("test")
 class AuthenticationIT {
 
-    @Test
-    @DisplayName("Any HTTP request must be authenticated")
-    void whenHttpGetOnRootThenResponseWithUnauthorizedError(@Autowired final WebTestClient client) {
-        client.mutate().defaultCookies(Map::clear).build().get().exchange().expectStatus().isUnauthorized();
-    }
-
 
     @Test
     @DisplayName("Unauthenticated HTTP request must contain in response header www-authenticate with Basic type")
