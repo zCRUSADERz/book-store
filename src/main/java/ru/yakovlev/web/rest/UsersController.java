@@ -24,15 +24,18 @@
 
 package ru.yakovlev.web.rest;
 
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-import org.springframework.hateoas.EntityModel;
-import org.springframework.web.bind.annotation.GetMapping;
+import javax.validation.Valid;
+import lombok.AllArgsConstructor;
+import org.springframework.context.MessageSource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.provisioning.UserDetailsManager;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.yakovlev.web.resources.ApiRelations;
+import ru.yakovlev.web.resources.NewUserResource;
+import ru.yakovlev.web.resources.UserAlreadyExists;
 
 /**
  * API entry point.
@@ -41,20 +44,17 @@ import ru.yakovlev.web.resources.ApiRelations;
  * @since 0.6.0
  */
 @RestController
-@RequestMapping("/api")
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ApiEntryPoint {
-    public static final String CUSTOM_MIME_TYPE = "application/vnd.ru.yakovlev.book-store.v1+json";
+@RequestMapping("/api/users")
+@AllArgsConstructor
+public class UsersController {
+    private final UserDetailsManager userManager;
+    private final MessageSource messageSource;
 
-    /**
-     * List of all API relations.
-     *
-     * @return List of all API relations.
-     */
-    @GetMapping
-    public EntityModel<ApiRelations> relations() {
-        final var model = EntityModel.of(ApiRelations.of(linkTo(UsersController.class).withRel("users")));
-        model.add(linkTo(ApiEntryPoint.class).withSelfRel());
-        return model;
+    @PostMapping(consumes = ApiEntryPoint.CUSTOM_MIME_TYPE)
+    public ResponseEntity<Object> createUser(@Valid @RequestBody final NewUserResource newUser)
+            throws UserAlreadyExists {
+        newUser.register(this.userManager, this.messageSource);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
 }
